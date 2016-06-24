@@ -35,12 +35,13 @@
         </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            android:maxWidth="42dp"
-            android:maxHeight="42dp"
+            android:maxWidth="100dp"
+            android:maxHeight="100dp"
             android:background="#fff9fffb"
             android:id="@+id/examplePic"/>
 

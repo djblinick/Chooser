@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -23,6 +24,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.FileDescriptor;
 
 
 public class DilemmaActivity extends ActionBarActivity {
@@ -118,14 +121,15 @@ public class DilemmaActivity extends ActionBarActivity {
         Activity activity = this;
         if (resultCode == activity.RESULT_OK) {
             Uri selectedImage = imageReturnedIntent.getData();
-            String[] filePathColumn = {MediaStore.Images.Media.DATA};
-            Cursor cursor = activity.getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-            if (cursor.moveToFirst()) {
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                String filePath = cursor.getString(columnIndex);
-                bm = BitmapFactory.decodeFile(filePath);
+            try {
+                ParcelFileDescriptor parcelFileDescriptor =
+                        getContentResolver().openFileDescriptor(selectedImage, "r");
+                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+                bm = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+                parcelFileDescriptor.close();
+            } catch (Exception e) {
+                //error
             }
-            cursor.close();
         }
 
 

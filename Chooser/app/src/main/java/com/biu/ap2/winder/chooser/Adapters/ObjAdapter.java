@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,7 +90,7 @@ public class ObjAdapter extends BaseAdapter {
                 for (Choice choice: objectList) {
                     if (choice.getName().equals(strTag)) ChioceToDelete = choice;
                 }
-                if (del==null) return;
+                if (ChioceToDelete==null) return;
                 objectList.remove(ChioceToDelete);
                 baseAdapter.notifyDataSetChanged();
                 Data.removeChoice(decistionName, ChioceToDelete);
@@ -122,6 +123,7 @@ public class ObjAdapter extends BaseAdapter {
             Bitmap scaledBitMap = Bitmap.createScaledBitmap(bitmap, 50,50, true);
             examplePic.setImageBitmap(scaledBitMap);
         }
+
 
 
 	// attach date to fields
