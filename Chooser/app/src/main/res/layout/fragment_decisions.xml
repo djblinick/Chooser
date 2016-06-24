@@ -1,0 +1,20 @@
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/feed_swipeLayout">
+
+    <ListView
+        android:id="@+id/lstDecisions"
+        android:divider="@null"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </ListView>
+
+    <TextView android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="list_8_no_photos"/>
+
+</android.support.v4.widget.SwipeRefreshLayout>
