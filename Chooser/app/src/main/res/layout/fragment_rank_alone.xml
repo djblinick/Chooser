@@ -24,19 +24,13 @@
         android:textAlignment="center"
         android:background="#fff9fffb"/>
 
-    <ImageView
-        android:id="@+id/ra_img"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ra_title"/>
-
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/ra_img"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/fragment_rank_alone">
 
         <Button
             android:layout_width="wrap_content"
@@ -57,5 +51,18 @@
             android:text="3"/>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ra_img"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ra_title"
+        android:layout_above="@id/fragment_rank_alone"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="45dp"/>
 
 </RelativeLayout>

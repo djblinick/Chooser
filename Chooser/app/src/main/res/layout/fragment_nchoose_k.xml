@@ -24,13 +24,13 @@
         android:textAlignment="center"
         android:background="#fff9fffb"/>
 
-    <ListView
+    <GridView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/doneChooseK"
         android:layout_below="@+id/NchooseK_title"
         android:id="@+id/choiceList">
-    </ListView>
+    </GridView>
 
     <Button
         android:layout_width="wrap_content"

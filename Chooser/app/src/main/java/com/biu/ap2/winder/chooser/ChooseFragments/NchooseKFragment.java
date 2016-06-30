@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ public class NchooseKFragment extends chooseFragment {
 
     ChoiceAdapter choiceAdapter;
     List<Choice> choiceList;
-    ListView listView;
+    GridView listView;
 
     // Constructor.
     public NchooseKFragment() {
@@ -42,7 +43,7 @@ public class NchooseKFragment extends chooseFragment {
             LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nchoose_k, container, false);
 
-        listView = (ListView) view.findViewById(R.id.choiceList);
+        listView = (GridView) view.findViewById(R.id.choiceList);
 
         // Fill the list with N options.
         choiceList = new ArrayList<>();

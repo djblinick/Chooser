@@ -1,5 +1,7 @@
 package com.biu.ap2.winder.chooser.ChooseFragments;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +40,10 @@ public class StandAloneFragment extends chooseFragment {
         if (!choiceIterator.hasNext()) return view;
         choice = choiceIterator.next();
         // set the picture from that choice
-        img.setImageBitmap(choice.getFirstPic());
+        Bitmap choiceImageBitmap = choice.getFirstPic();
+        //Bitmap choiceImageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test1);
+        img.setImageBitmap(choiceImageBitmap);
+        //img.setImageResource(R.drawable.test1);
 
         // listener for right or left swift
         img.setOnTouchListener(new OnSwipeTouchListener(getActivity()) {

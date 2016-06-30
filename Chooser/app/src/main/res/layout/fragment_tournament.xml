@@ -12,14 +12,14 @@
 
     <TextView
         android:id="@+id/Tournament_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:text="Tournament"
-        android:textSize="60dp"
+        android:textSize="50dp"
         android:textColor="#fa000000"
         android:textAlignment="center"
         android:background="#fff9fffb"/>
@@ -32,8 +32,8 @@
         android:layout_below="@+id/Tournament_title">
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:layout_alignParentLeft="true"
@@ -42,14 +42,27 @@
             android:background="#fff9fffb"/>
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:src="@drawable/test2"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:layout_alignParentRight="true"
             android:id="@+id/secondPic"
             android:background="#fff9fffb"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/firstPic"
+            android:layout_toLeftOf="@id/secondPic"
+            android:text="OR"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:layout_alignBottom="@id/secondPic"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"/>
 
     </RelativeLayout>
 
