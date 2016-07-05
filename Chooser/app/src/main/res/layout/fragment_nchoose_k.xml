@@ -25,11 +25,18 @@
         android:background="#fff9fffb"/>
 
     <GridView
+        android:layout_marginTop="20dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/doneChooseK"
         android:layout_below="@+id/NchooseK_title"
-        android:id="@+id/choiceList">
+        android:id="@+id/choiceList"
+        android:numColumns="auto_fit"
+        android:columnWidth="90dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:gravity="center"
+        android:stretchMode="columnWidth">
     </GridView>
 
     <Button
