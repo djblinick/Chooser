@@ -24,6 +24,11 @@
             android:label="@string/title_activity_home_page" >
         </activity>
 
+        <activity
+            android:name=".WinnerActivity"
+            android:label="@string/winner_activity" >
+        </activity>
+
         <service
             android:name=".ReloadService"
             android:exported="false" >

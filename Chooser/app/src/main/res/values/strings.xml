@@ -4,6 +4,7 @@
     <string name="home_page_title">My Decisions</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home_page">HomePageActivity</string>
+    <string name="winner_activity">Winner!</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

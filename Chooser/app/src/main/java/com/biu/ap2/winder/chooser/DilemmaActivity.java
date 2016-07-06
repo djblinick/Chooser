@@ -22,10 +22,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileDescriptor;
+import java.util.List;
 
 
 public class DilemmaActivity extends ActionBarActivity {
@@ -94,13 +97,17 @@ public class DilemmaActivity extends ActionBarActivity {
 
         });
 
+        final RadioGroup fragment_selection_radio_button =(RadioGroup)findViewById(R.id.fragment_selection_radio_button);
 
         Button helpMeDecide = (Button) findViewById(R.id.help_me_decided_button);
         helpMeDecide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), HelperActivity.class);
+                int selectedId = fragment_selection_radio_button.getCheckedRadioButtonId();
+                RadioButton selected_radio_button = (RadioButton)findViewById(selectedId);
                 i.putExtra("view", Dname);
+                i.putExtra("selected_radio_button", selected_radio_button.getText().toString());
                 startActivity(i);
             }
         });

@@ -1,12 +1,25 @@
 package com.biu.ap2.winder.chooser;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +27,8 @@ import com.biu.ap2.winder.chooser.Adapters.AdvanceBarAdapter;
 import com.biu.ap2.winder.chooser.ChooseFragments.Logic;
 import com.biu.ap2.winder.chooser.ChooseFragments.chooseFragment;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,6 +86,21 @@ public class HelperActivity extends ActionBarActivity {
         //cfl = logic.allRankAlone();
        // cfl = logic.firstStandAloneThenRankAlone();
         cfl = logic.allNchooseK();
+
+        switch (getIntent().getExtras().getString("selected_radio_button")) {
+            case "N-Choose-K":
+                cfl = logic.allNchooseK();
+                break;
+            case "Tournament Style":
+                cfl = logic.allTurnaments();
+                break;
+            case "Rank Alone":
+                cfl = logic.allRankAlone();
+                break;
+            case "Stand Alone":
+                cfl = logic.allStandAlone();
+                break;
+        }
 
 
 
@@ -144,9 +174,27 @@ public class HelperActivity extends ActionBarActivity {
         choose(newMap);
     }
 
+    //private PopupWindow popupWindow;
+    //private LayoutInflater layoutInflater;
+
     private void haveWinner(Choice c, int score) {
-        String s = "choose " + c.getName() + "with score " + Integer.valueOf(score);
-        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+        String s = "choose " + c.getName() + "!" + "\n" + "Score: " + Integer.valueOf(score);
+        Intent i = new Intent(getApplicationContext(), WinnerActivity.class);
+        String fileName = s;//no .png or .jpg needed
+        try {
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            c.getFirstPic().compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            FileOutputStream fo = openFileOutput(fileName, Context.MODE_PRIVATE);
+            fo.write(bytes.toByteArray());
+            // remember close file output
+            fo.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            fileName = null;
+        }
+        i.putExtra("filename", s);
+        startActivity(i);
+        
         //TODO move the Dilemma Activity
     }
 

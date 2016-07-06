@@ -14,11 +14,11 @@
     <!-- Name of the dilemma. -->
     <TextView
         android:id="@+id/dilemmatitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="dilemma name"
         android:textAllCaps="true"
         android:textSize="40dp"
@@ -30,44 +30,88 @@
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/dilemmatitle"
-        android:layout_alignRight="@+id/dilemmatitle"
-        android:layout_alignEnd="@+id/dilemmatitle"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/addbutton"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:id="@+id/add_object_button"
         android:layout_gravity="end"
-        android:background="#fff9fffb"/>
+        android:background="#fff9fffb"
+        android:layout_alignTop="@+id/ImageFragment"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <!-- Help me decide button. -->
     <Button
         android:layout_width="300dp"
-        android:layout_height="120dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="30dp"
+        android:layout_height="60dp"
         android:text="HELP ME DECIDE!"
         android:textColor="#ff32d2ff"
         android:background="#ffe6ffff"
         android:textSize="30dp"
-        android:id="@+id/help_me_decided_button" />
+        android:id="@+id/help_me_decided_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <FrameLayout
         android:id="@+id/ObjectsFragment"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_above="@+id/help_me_decided_button"
-        android:layout_below="@+id/add_decision_button">
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/fragment_selection_radio_button"
+        android:layout_below="@+id/dilemmatitle"
+        android:layout_toLeftOf="@id/add_object_button"
+        android:layout_marginRight="10dp">
     </FrameLayout>
 
     <FrameLayout
         android:id="@+id/ImageFragment"
         android:layout_width="200dp"
-        android:layout_height="300dp"
-        android:layout_above="@+id/help_me_decided_button"
-        android:layout_below="@+id/add_decision_button">
+        android:layout_height="200dp"
+        android:layout_above="@+id/fragment_selection_radio_button"
+        android:layout_below="@+id/dilemmatitle">
     </FrameLayout>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_selection_radio_button"
+        android:layout_above="@+id/help_me_decided_button"
+        android:layout_alignLeft="@+id/help_me_decided_button"
+        android:layout_alignStart="@+id/help_me_decided_button"
+        android:layout_marginBottom="10dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N-Choose-K"
+            android:id="@+id/n_choose_k_radio_button"
+            android:checked="true"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tournament Style"
+            android:id="@+id/tournament_radio_button"
+            android:checked="false"
+            android:textSize="20dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rank Alone"
+            android:id="@+id/rank_alone_radio_button"
+            android:checked="false"
+            android:textSize="20dp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stand Alone"
+            android:id="@+id/stand_alone_radio_button"
+            android:checked="false"
+            android:textSize="20dp" />
+    </RadioGroup>
+
 
 </RelativeLayout>
